@@ -5,26 +5,39 @@ namespace MinimolGames
 {
     public class EnemyController : MonoBehaviour
     {
-        [SerializeField] float moveSpeed = 3f;
+        public Action Death;
+
+        [SerializeField] float _moveSpeed = 3f;
+        [SerializeField] PlayerController _player;
+
+        private void Start()
+        {
+            _player = FindObjectOfType<PlayerController>();
+        }
+
         void Update()
         {
-            var player = FindObjectOfType<PlayerController>();
-            if (player == null) return;
-            MoveTowards(player.transform);
+            if (_player == null) return;
+            MoveTowards(_player.transform);
         }
 
-        void MoveTowards(Transform target)
+        private void OnDestroy()
         {
-            var direction = (target.position - transform.position).normalized;
-            transform.Translate(moveSpeed * Time.deltaTime * direction, Space.World);
+            Death?.Invoke();
         }
 
-        void OnCollisionEnter(Collision other)
+        void MoveTowards(Transform p_target)
         {
-            if (other.transform.CompareTag("Player"))
+            var direction = (p_target.position - transform.position).normalized;
+            transform.Translate(_moveSpeed * Time.deltaTime * direction, Space.World);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Player"))
             {
-                var player = other.gameObject.GetComponent<PlayerController>();
-                Destroy(player.gameObject);
+                other.GetComponent<PlayerController>().Death?.Invoke();
+                Destroy(other.gameObject);
             }
         }
     }

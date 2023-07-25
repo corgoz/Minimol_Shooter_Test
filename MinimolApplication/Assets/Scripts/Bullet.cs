@@ -5,9 +5,11 @@ namespace MinimolGames
 {
     public class Bullet : MonoBehaviour
     {
+        [SerializeField] private float _lifeTime = 10f;
+
         void Start()
         {
-            Destroy(gameObject, 10f);
+            Destroy(gameObject, _lifeTime);
         }
 
         void Update()
