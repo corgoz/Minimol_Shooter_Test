@@ -1,29 +1,25 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MinimolGames
 {
-    public class Bullet : MonoBehaviour
+    public class Bullet : DamageDealer
     {
         [SerializeField] private float _lifeTime = 10f;
+        [SerializeField] private float _moveSpeed = 10f;
 
-        void Start()
+        private void Start()
         {
             Destroy(gameObject, _lifeTime);
         }
 
-        void Update()
+        private void Update()
         {
-            transform.Translate(10f * Time.deltaTime * transform.forward, Space.World);
+            transform.Translate(_moveSpeed * Time.deltaTime * transform.forward, Space.World);
         }
 
         void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Enemy"))
-            {
-                Destroy(other.gameObject);
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }

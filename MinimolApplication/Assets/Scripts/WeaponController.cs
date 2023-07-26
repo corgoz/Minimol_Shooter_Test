@@ -4,15 +4,15 @@ namespace MinimolGames
 {
     public class WeaponController : MonoBehaviour
     {
-        [SerializeField] GameObject bulletPrefab;
-        [SerializeField] Transform spawnPoint;
+        [SerializeField] private GameObject _bulletPrefab;
+        [SerializeField] private Transform _spawnPoint;
         
-        void Update()
+        private void Update()
         {
+            if(!GameManager.instance.IsPlaying) return;
+
             if (Input.GetMouseButtonDown(0))
-            {
-                Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
-            }
+                Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
         }
     }
 }

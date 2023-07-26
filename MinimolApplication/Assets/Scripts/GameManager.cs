@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,8 +7,12 @@ namespace MinimolGames
     {
         public static GameManager instance;
 
+        [Header("Game Object References")]
         [SerializeField] private GameObject _player;
         [SerializeField] private GameObject _enemyPrefab;
+
+        [Header ("Enemy Spawn Settings")]
+        [SerializeField] private float _enemySpawnRadius;
         [SerializeField] private float _enemySpawnRate;
         
         private bool _isPlaying;
@@ -18,8 +20,8 @@ namespace MinimolGames
         private float _elapsedTime;
 
         public bool IsPlaying => _isPlaying;
-        // Start is called before the first frame update
-        void Awake()
+
+        private void Awake()
         {
             if (instance == null)
                 instance = this;
@@ -29,13 +31,13 @@ namespace MinimolGames
 
         private void Start()
         {
-            _player.GetComponent<PlayerController>().Death += OnPlayerDeath;
+            _player.GetComponent<HealthController>().Death += OnPlayerDeath;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
             if (_player == null || !_isPlaying) return;
+            
             _elapsedTime += Time.deltaTime;
             if( _elapsedTime > 1 / _enemySpawnRate)
             {
@@ -46,31 +48,27 @@ namespace MinimolGames
 
         public void BeginGame() => _isPlaying = true;
 
-        public void ReloadLevel()
-        {
-            SceneManager.LoadScene(0);
-        }
-
+        public void ReloadLevel() => SceneManager.LoadScene(0);
 
         private void SpawnEnemy()
         {
-            Vector3 randomPositionInCircle = Random.insideUnitCircle * 10;
+            Vector3 randomPositionInCircle = Random.insideUnitCircle.normalized * _enemySpawnRadius;
             randomPositionInCircle.z = randomPositionInCircle.y;
             randomPositionInCircle.y = 0;
 
             Vector3 spawnPosition = _player.transform.position + randomPositionInCircle;
 
             var enemy = Instantiate(_enemyPrefab, _player.transform.position + spawnPosition, Quaternion.identity);
-            enemy.GetComponent<EnemyController>().Death += OnEnemyDeath;
+            enemy.GetComponent<HealthController>().Death += OnEnemyDeath;
         }
 
-        private void OnEnemyDeath()
+        private void OnEnemyDeath(HealthController p_healthController)
         {
             _score++;
             UIManager.instance.UpdateScore(_score);
         }
 
-        private void OnPlayerDeath()
+        private void OnPlayerDeath(HealthController p_healthController)
         {
             _isPlaying = false;
             UIManager.instance.ShowGameResults();

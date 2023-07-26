@@ -1005,6 +1005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 8267636}
   _enemyPrefab: {fileID: 4746893933013467878, guid: f5f21414eb0870f4dafcf22bfe601ba4, type: 3}
+  _enemySpawnRadius: 25
   _enemySpawnRate: 2
 --- !u!4 &1381020533
 Transform:
@@ -1791,6 +1792,10 @@ PrefabInstance:
     - target: {fileID: 2300052468023497719, guid: e4a90ba45b4dfcb4593f2dfaf5571eca, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300052468023497719, guid: e4a90ba45b4dfcb4593f2dfaf5571eca, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2300052468023497719, guid: e4a90ba45b4dfcb4593f2dfaf5571eca, type: 3}
       propertyPath: m_TagString

@@ -1,23 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace MinimolGames
 {
     public class Character : MonoBehaviour
     {
+        [SerializeField] private CharacterSettings _characterSettings;
+
         private HealthController _healthController;
+        private CharacterMovement _characterMovement;
 
-        // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
-        
-        }
+            _healthController = GetComponent<HealthController>();
+            _healthController.Init(_characterSettings.MaxHealth);
 
-        // Update is called once per frame
-        void Update()
-        {
-        
+            _characterMovement = GetComponent<CharacterMovement>();
+            _characterMovement.Init(_characterSettings);
         }
     }
 }

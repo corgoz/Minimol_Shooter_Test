@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -14,7 +12,6 @@ namespace MinimolGames
         [SerializeField] private GameObject _resultsPanel;
         [SerializeField] private TextMeshProUGUI _score;
 
-        // Start is called before the first frame update
         void Awake()
         {
             if (instance == null)

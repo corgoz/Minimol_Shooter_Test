@@ -1,16 +1,10 @@
-using System;
 using UnityEngine;
 
 namespace MinimolGames
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerMovement : CharacterMovement
     {
-        public Action Death;
-
-        [SerializeField] float _moveSpeed = 5f;
-        [SerializeField] float _rotationSpeed = 5f;
-
-        void Update()
+        private void Update()
         {
             if (!GameManager.instance.IsPlaying) return;
 
@@ -25,19 +19,20 @@ namespace MinimolGames
             Move(input);
         }
 
-        void Move(Vector3 input)
+        private void Move(Vector3 input)
         {
-            transform.Translate(_moveSpeed * Time.deltaTime * input, Space.World);
+            transform.Translate(_characterSettings.MoveSpeed * Time.deltaTime * input.normalized, Space.World);
         }
 
-        void Rotate(RaycastHit hit)
+        private void Rotate(RaycastHit hit)
         {
             Vector3 direction = hit.point - transform.position;
             direction.y = 0f; // To prevent tilting up or down
 
             Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+            float step = _characterSettings.RotationSpeed * Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, step);
         }
     }
 }

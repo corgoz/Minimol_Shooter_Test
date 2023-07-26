@@ -1,21 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace MinimolGames
 {
     public class HealthController : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        public Action Hit;
+        public Action<HealthController> Death;
+
+        private int _maxHealth;
+        private int _currentHealth;
         
+        public bool IsDead => _currentHealth <= 0;
+
+        private void OnTriggerEnter(Collider other)
+        {
+            DamageDealer damageDealer = other.GetComponent<DamageDealer>();
+            if (damageDealer)
+                GetHit(damageDealer.DamageAmount);
         }
 
-        // Update is called once per frame
-        void Update()
+        public void Init(int p_maxHealth)
         {
-        
+            _maxHealth = p_maxHealth;
+            _currentHealth = p_maxHealth; 
+        }
+
+        public void Heal(int p_amount) => _currentHealth = Mathf.Min(_maxHealth, _currentHealth + p_amount);
+
+        public void GetHit(int p_amount)
+        {
+            _currentHealth = _currentHealth - p_amount;
+            Hit?.Invoke();
+            if( _currentHealth <= 0)
+                Die();
+        }
+
+        private void Die()
+        {
+            Death?.Invoke(this);
+            Destroy(gameObject);
         }
     }
 }
