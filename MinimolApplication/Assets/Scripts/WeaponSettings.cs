@@ -6,11 +6,11 @@ namespace MinimolGames
     public class WeaponSettings : ScriptableObject
     {
         [SerializeField] private float _fireRate;
-        [SerializeField] private GameObject _gfx;
+        [SerializeField] private GameObject _weaponPrefab;
         [SerializeField] private GameObject _projectilePrefab;
 
         public float FireRate => _fireRate;
-        public GameObject Gfx => _gfx;
+        public GameObject WeaponPrefab => _weaponPrefab;
         public GameObject ProjectilePrefab => _projectilePrefab;
     }
 }

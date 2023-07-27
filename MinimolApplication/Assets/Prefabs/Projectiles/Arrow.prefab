@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3967487520254220483}
-  - component: {fileID: 2420023189078459518}
+  - component: {fileID: 4545076040246291872}
   - component: {fileID: 4314625071691542033}
   m_Layer: 7
   m_Name: Arrow
@@ -34,8 +34,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2420023189078459518
-SphereCollider:
+--- !u!136 &4545076040246291872
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -44,8 +44,9 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.1
+  m_Height: 1.5
+  m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4314625071691542033
 MonoBehaviour:
@@ -95,7 +96,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66cbc11a2232f2a429fc1e14672cf8c1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.673
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66cbc11a2232f2a429fc1e14672cf8c1, type: 3}
       propertyPath: m_LocalRotation.w

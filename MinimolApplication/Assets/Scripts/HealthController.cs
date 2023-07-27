@@ -8,7 +8,7 @@ namespace MinimolGames
         public Action Hit;
         public Action<HealthController> Death;
 
-        private int _maxHealth;
+        private CharacterSettings _characterSettings;
         private int _currentHealth;
         
         public bool IsDead => _currentHealth <= 0;
@@ -20,13 +20,13 @@ namespace MinimolGames
                 GetHit(damageDealer.DamageAmount);
         }
 
-        public void Init(int p_maxHealth)
+        public void Init(CharacterSettings p_characterSettings)
         {
-            _maxHealth = p_maxHealth;
-            _currentHealth = p_maxHealth; 
+            _characterSettings = p_characterSettings;
+            _currentHealth = _characterSettings.MaxHealth; 
         }
 
-        public void Heal(int p_amount) => _currentHealth = Mathf.Min(_maxHealth, _currentHealth + p_amount);
+        public void Heal(int p_amount) => _currentHealth = Mathf.Min(_characterSettings.MaxHealth, _currentHealth + p_amount);
 
         public void GetHit(int p_amount)
         {
@@ -40,6 +40,12 @@ namespace MinimolGames
         {
             Death?.Invoke(this);
             Destroy(gameObject);
+            if (!_characterSettings.DeathFX) return;
+
+            Instantiate(_characterSettings.DeathFX, 
+                        transform.position + _characterSettings.DeathFX.transform.position,
+                        _characterSettings.DeathFX.transform.rotation
+                        );
         }
     }
 }

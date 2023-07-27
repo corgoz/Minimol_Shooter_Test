@@ -15,3 +15,4 @@ MonoBehaviour:
   _maxHealth: 1
   _moveSpeed: 3
   _rotationSpeed: 120
+  _deathFX: {fileID: 7226888052703040409, guid: 7ec363c8df426644ea85f8d6d570561c, type: 3}

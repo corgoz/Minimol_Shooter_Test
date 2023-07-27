@@ -1687,11 +1687,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1973647020 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 692329322867727216, guid: e4a90ba45b4dfcb4593f2dfaf5571eca, type: 3}
-  m_PrefabInstance: {fileID: 2300052468234397932}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2052053909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,10 +1797,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2300052467944535593, guid: e4a90ba45b4dfcb4593f2dfaf5571eca, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 2300052468023497712, guid: e4a90ba45b4dfcb4593f2dfaf5571eca, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1854,21 +1845,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2300052468023497719, guid: e4a90ba45b4dfcb4593f2dfaf5571eca, type: 3}
-      propertyPath: m_Layer
-      value: 6
+    - target: {fileID: 8055102911678860868, guid: e4a90ba45b4dfcb4593f2dfaf5571eca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2300052468023497719, guid: e4a90ba45b4dfcb4593f2dfaf5571eca, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5524786384642070859, guid: e4a90ba45b4dfcb4593f2dfaf5571eca, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8cbe6bb8192aef84d922e80c3dbf6fd9, type: 2}
-    - target: {fileID: 7788355838030270068, guid: e4a90ba45b4dfcb4593f2dfaf5571eca, type: 3}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 1973647020}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a90ba45b4dfcb4593f2dfaf5571eca, type: 3}

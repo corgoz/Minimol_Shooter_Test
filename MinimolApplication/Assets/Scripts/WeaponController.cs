@@ -5,9 +5,16 @@ namespace MinimolGames
     public class WeaponController : MonoBehaviour
     {
         [SerializeField] private WeaponSettings _weaponSettings;
-        [SerializeField] private Transform _spawnPoint;
-
+        
+        private Transform _spawnPoint;
         private float _elapsedTime = 0;
+
+        private void Awake()
+        {
+            var weapon = Instantiate(_weaponSettings.WeaponPrefab, transform);
+            _spawnPoint = weapon.transform.GetChild(0);
+        }
+
 
         private void Update()
         {

@@ -12,7 +12,7 @@ namespace MinimolGames
         private void Start()
         {
             _healthController = GetComponent<HealthController>();
-            _healthController.Init(_characterSettings.MaxHealth);
+            _healthController.Init(_characterSettings);
 
             _characterMovement = GetComponent<CharacterMovement>();
             _characterMovement.Init(_characterSettings);

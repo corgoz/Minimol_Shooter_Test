@@ -8,10 +8,12 @@ namespace MinimolGames
         [SerializeField] private int _maxHealth;
         [SerializeField] private float _moveSpeed;
         [SerializeField] private float _rotationSpeed;
+        [SerializeField] private GameObject _deathFX;
 
         public int MaxHealth => _maxHealth;
         public float MoveSpeed => _moveSpeed;
         public float RotationSpeed => _rotationSpeed;
-    
+
+        public GameObject DeathFX => _deathFX;
     }
 }
