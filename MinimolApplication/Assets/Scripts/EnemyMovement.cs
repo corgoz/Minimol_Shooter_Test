@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace MinimolGames
 {
@@ -9,10 +10,10 @@ namespace MinimolGames
 
         private void Start()
         {
-            _player = FindObjectOfType<PlayerMovement>();
+            _player = FindObjectOfType<PlayerMovement>(); 
         }
 
-        void Update()
+        private void Update()
         {
             if (_player == null) return;
             MoveTowards(_player.transform);
@@ -20,8 +21,9 @@ namespace MinimolGames
 
         private void MoveTowards(Transform p_target)
         {
-            var direction = (p_target.position - transform.position).normalized;
-            transform.Translate(_characterSettings.MoveSpeed * Time.deltaTime * direction, Space.World);
+            //var direction = (p_target.position - transform.position).normalized;
+            //transform.Translate(_characterSettings.MoveSpeed * Time.deltaTime * direction, Space.World);
+            _navMeshAgent.SetDestination(_player.transform.position);
         }
     }
 }

@@ -21,7 +21,8 @@ namespace MinimolGames
 
         private void Move(Vector3 input)
         {
-            transform.Translate(_characterSettings.MoveSpeed * Time.deltaTime * input.normalized, Space.World);
+            _navMeshAgent.Move(_characterSettings.MoveSpeed * Time.deltaTime * input.normalized);
+           // transform.Translate(_characterSettings.MoveSpeed * Time.deltaTime * input.normalized, Space.World);
         }
 
         private void Rotate(RaycastHit hit)
