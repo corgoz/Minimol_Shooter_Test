@@ -2,7 +2,7 @@
 
 namespace MinimolGames
 {
-    public class Bullet : DamageDealer
+    public class Projectile : DamageDealer
     {
         [SerializeField] private float _lifeTime = 10f;
         [SerializeField] private float _moveSpeed = 10f;
