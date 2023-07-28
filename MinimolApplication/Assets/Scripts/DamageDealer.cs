@@ -4,8 +4,8 @@ namespace MinimolGames
 {
     public class DamageDealer : MonoBehaviour
     {
-        [SerializeField] private int _damageAmount;
+        [SerializeField] protected DamageDealerSettings _settings;
 
-        public int DamageAmount => _damageAmount;
+        public int DamageAmount => _settings.DamageAmount;
     }
 }

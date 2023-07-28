@@ -9,6 +9,8 @@ namespace MinimolGames
         public Action<HealthController> Death;
 
         private CharacterSettings _characterSettings;
+        private GameObject _deathFX;
+        private Vector3 _deathFXSpawnOffset;
         private int _currentHealth;
         
         public bool IsDead => _currentHealth <= 0;
@@ -23,7 +25,15 @@ namespace MinimolGames
         public void Init(CharacterSettings p_characterSettings)
         {
             _characterSettings = p_characterSettings;
-            _currentHealth = _characterSettings.MaxHealth; 
+            _currentHealth = _characterSettings.MaxHealth;
+
+            if (!_deathFX && _characterSettings.DeathFX)
+            {
+                _deathFX = Instantiate(_characterSettings.DeathFX);
+                _deathFX.SetActive(false);
+                _deathFXSpawnOffset = _characterSettings.DeathFX.transform.position;
+            }
+
         }
 
         public void Heal(int p_amount) => _currentHealth = Mathf.Min(_characterSettings.MaxHealth, _currentHealth + p_amount);
@@ -39,13 +49,11 @@ namespace MinimolGames
         private void Die()
         {
             Death?.Invoke(this);
-            Destroy(gameObject);
-            if (!_characterSettings.DeathFX) return;
+            gameObject.SetActive(false);
+            if (!_deathFX) return;
 
-            Instantiate(_characterSettings.DeathFX, 
-                        transform.position + _characterSettings.DeathFX.transform.position,
-                        _characterSettings.DeathFX.transform.rotation
-                        );
+            _deathFX.transform.position = transform.position + _deathFXSpawnOffset;
+            _deathFX.SetActive(true);
         }
     }
 }

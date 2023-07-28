@@ -4,22 +4,32 @@ namespace MinimolGames
 {
     public class Projectile : DamageDealer
     {
-        [SerializeField] private float _lifeTime = 10f;
-        [SerializeField] private float _moveSpeed = 10f;
+//        private ProjectileSettings _projectileSettings;
 
-        private void Start()
+        private float _elapsedTime;
+        private Transform _transform;
+
+        private void Awake()
         {
-            Destroy(gameObject, _lifeTime);
+            _transform = transform;
+         //   _projectileSettings = (ProjectileSettings)_settings;
         }
 
         private void Update()
         {
-            transform.Translate(_moveSpeed * Time.deltaTime * transform.forward, Space.World);
+            _transform.Translate(((ProjectileSettings)_settings).MoveSpeed * Time.deltaTime * _transform.forward, Space.World);
+
+            _elapsedTime += Time.deltaTime;
+            if(_elapsedTime > ((ProjectileSettings)_settings).LifeTime)
+            {
+                _elapsedTime = 0;
+                gameObject.SetActive(false);
+            }
         }
 
-        void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

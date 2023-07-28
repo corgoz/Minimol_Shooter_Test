@@ -7,12 +7,15 @@ namespace MinimolGames
     {
         public static UIManager instance;
 
+        [Header ("Panels")]
         [SerializeField] private GameObject _mainMenuPanel;
         [SerializeField] private GameObject _inGamePanel;
         [SerializeField] private GameObject _resultsPanel;
+
+        [Header("UI Elements")]
         [SerializeField] private TextMeshProUGUI _score;
 
-        void Awake()
+        private void Awake()
         {
             if (instance == null)
                 instance = this;

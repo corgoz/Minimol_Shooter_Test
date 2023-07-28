@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3967487520254220483}
   - component: {fileID: 4545076040246291872}
   - component: {fileID: 4314625071691542033}
+  - component: {fileID: -4316602500014228251}
   m_Layer: 6
   m_Name: Arrow
   m_TagString: Untagged
@@ -61,8 +62,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 1
-  _lifeTime: 10
-  _moveSpeed: 10
+  _settings: {fileID: 11400000, guid: d27da63d60b58de499290844ec8be370, type: 2}
+  _projectileSettings: {fileID: 11400000, guid: d27da63d60b58de499290844ec8be370, type: 2}
+--- !u!114 &-4316602500014228251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2728731296448604723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902a365387261a9439c91a10e85e01fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2946365912461804471
 PrefabInstance:
   m_ObjectHideFlags: 0

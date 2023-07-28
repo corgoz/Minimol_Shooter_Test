@@ -18,6 +18,7 @@ namespace MinimolGames
         private bool _isPlaying;
         private int _score;
         private float _elapsedTime;
+        private ObjectPool<PoolObject> _enemyPool;
 
         public bool IsPlaying => _isPlaying;
 
@@ -32,6 +33,7 @@ namespace MinimolGames
         private void Start()
         {
             _player.GetComponent<HealthController>().Death += OnPlayerDeath;
+            _enemyPool = new ObjectPool<PoolObject>(_enemyPrefab);
         }
 
         private void Update()
@@ -58,7 +60,7 @@ namespace MinimolGames
 
             Vector3 spawnPosition = _player.transform.position + randomPositionInCircle;
 
-            var enemy = Instantiate(_enemyPrefab, _player.transform.position + spawnPosition, Quaternion.identity);
+            var enemy = _enemyPool.Pull(_player.transform.position + spawnPosition);
             enemy.GetComponent<HealthController>().Death += OnEnemyDeath;
         }
 

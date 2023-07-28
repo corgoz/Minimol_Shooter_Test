@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.AI;
+﻿using UnityEngine;
 
 namespace MinimolGames
 {
@@ -21,8 +19,6 @@ namespace MinimolGames
 
         private void MoveTowards(Transform p_target)
         {
-            //var direction = (p_target.position - transform.position).normalized;
-            //transform.Translate(_characterSettings.MoveSpeed * Time.deltaTime * direction, Space.World);
             _navMeshAgent.SetDestination(_player.transform.position);
         }
     }
