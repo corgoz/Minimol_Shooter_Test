@@ -48,7 +48,11 @@ namespace MinimolGames
             }
         }
 
-        public void BeginGame() => _isPlaying = true;
+        public void BeginGame() 
+        {
+            _isPlaying = true;
+            UIManager.instance.SetHealthBar(_player.GetComponent<HealthController>());
+        }
 
         public void ReloadLevel() => SceneManager.LoadScene(0);
 

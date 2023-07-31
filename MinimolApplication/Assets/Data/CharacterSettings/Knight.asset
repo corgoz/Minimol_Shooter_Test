@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8151341b0c9799749b06a985ea7d76e3, type: 3}
-  m_Name: Player
+  m_Name: Knight
   m_EditorClassIdentifier: 
-  _maxHealth: 1
+  _gfx: {fileID: 919132149155446097, guid: 57bfebcfcfffd6d42afb29618662248c, type: 3}
+  _deathFX: {fileID: 0}
+  _maxHealth: 5
   _moveSpeed: 5
   _rotationSpeed: 5

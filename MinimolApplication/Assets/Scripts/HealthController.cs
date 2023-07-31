@@ -5,7 +5,7 @@ namespace MinimolGames
 {
     public class HealthController : MonoBehaviour
     {
-        public Action Hit;
+        public Action<int> Hit;
         public Action<HealthController> Death;
 
         private CharacterSettings _characterSettings;
@@ -14,6 +14,7 @@ namespace MinimolGames
         private int _currentHealth;
         
         public bool IsDead => _currentHealth <= 0;
+        public int MaxHealth => _characterSettings.MaxHealth;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -41,7 +42,7 @@ namespace MinimolGames
         public void GetHit(int p_amount)
         {
             _currentHealth = _currentHealth - p_amount;
-            Hit?.Invoke();
+            Hit?.Invoke(_currentHealth);
             if( _currentHealth <= 0)
                 Die();
         }

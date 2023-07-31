@@ -16,6 +16,8 @@ namespace MinimolGames
 
             _characterMovement = GetComponent<CharacterMovement>();
             _characterMovement.Init(_characterSettings);
+
+            Instantiate(_characterSettings.GFX, transform.GetChild(0));
         }
     }
 }
