@@ -56,10 +56,7 @@ namespace MinimolGames
 
         public void ReloadLevel() => SceneManager.LoadScene(0);
 
-        public void SetPlayerCharacter(CharacterSettings p_characterSettings)
-        {
-            _player.GetComponent<Character>().SetCharacter(p_characterSettings);
-        }
+        public void SetPlayerCharacter(CharacterSettings p_characterSettings) => _player.GetComponent<Character>().SetCharacter(p_characterSettings);
 
         private void SpawnEnemy()
         {

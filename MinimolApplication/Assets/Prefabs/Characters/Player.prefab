@@ -179,7 +179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterSettings: {fileID: 11400000, guid: 62aab93f65027bb4ebe66e58bb55a8b3, type: 2}
-  _weaponController: {fileID: 0}
 --- !u!114 &-8383142457275308535
 MonoBehaviour:
   m_ObjectHideFlags: 0

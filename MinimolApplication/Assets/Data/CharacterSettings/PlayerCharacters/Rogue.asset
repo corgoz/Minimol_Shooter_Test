@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8151341b0c9799749b06a985ea7d76e3, type: 3}
-  m_Name: Barbarian
+  m_Name: Rogue
   m_EditorClassIdentifier: 
-  _gfx: {fileID: 919132149155446097, guid: cfe8ea767a8536d4d8e77a676f3d5fe4, type: 3}
-  _deathFX: {fileID: 0}
-  _weapon: {fileID: 11400000, guid: ab2b57b0c49f78d45ab80e66aa22e1e9, type: 2}
-  _maxHealth: 5
-  _moveSpeed: 5
+  _gfx: {fileID: 919132149155446097, guid: fedd891914d046f4b80eb6ad25ee5b5e, type: 3}
+  _deathFX: {fileID: 5985634496115995773, guid: 463cf9f7af4680240898f6aeba3fe3e6, type: 3}
+  _weapon: {fileID: 11400000, guid: c89abdcdca3a855438711cbbd7ed63b1, type: 2}
+  _maxHealth: 3
+  _moveSpeed: 7
   _rotationSpeed: 5

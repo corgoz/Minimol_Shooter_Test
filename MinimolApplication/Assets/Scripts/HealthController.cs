@@ -34,7 +34,6 @@ namespace MinimolGames
                 _deathFX.SetActive(false);
                 _deathFXSpawnOffset = _characterSettings.DeathFX.transform.position;
             }
-
         }
 
         public void Heal(int p_amount) => _currentHealth = Mathf.Min(_characterSettings.MaxHealth, _currentHealth + p_amount);

@@ -15,4 +15,4 @@ MonoBehaviour:
   _damageAmount: 1
   _lifeTime: 2.5
   _moveSpeed: 7.5
-  _destroyOnHit: 1
+  _hitParticle: {fileID: 2708598583397607911, guid: 4f2933a50fe053d40b903fde9bc901d0, type: 3}

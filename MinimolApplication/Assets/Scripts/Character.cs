@@ -8,9 +8,8 @@ namespace MinimolGames
 
         private HealthController _healthController;
         private CharacterMovement _characterMovement;
-        [SerializeField] private WeaponController _weaponController;
+        private WeaponController _weaponController;
         private Transform _gfx;
-
 
         private void Start()
         {

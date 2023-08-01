@@ -1,5 +1,4 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MinimolGames
 {
@@ -7,11 +6,9 @@ namespace MinimolGames
     {
         private float _elapsedTime;
         private Transform _transform;
+        private WeaponController _owner;
 
-        private void Awake()
-        {
-            _transform = transform;
-        }
+        public GameObject HitParticle => ((ProjectileSettings)_settings).HitParticle;
 
         private void Update()
         {
@@ -27,8 +24,17 @@ namespace MinimolGames
 
         private void OnTriggerEnter(Collider other)
         {
-            if(((ProjectileSettings)_settings).DestroyOnHit)
-                gameObject.SetActive(false);
+            gameObject.SetActive(false);
+            Transform hitParticle = _owner.GetProjectileHitParticle;
+            hitParticle.position = _transform.position;
+        }
+
+        public void Init(WeaponController p_weaponController)
+        {
+            if (_owner) return;
+
+            _transform = transform;
+            _owner = p_weaponController;
         }
     }
 }

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Mage
   m_EditorClassIdentifier: 
   _gfx: {fileID: 919132149155446097, guid: 8486224938bfdb448b62910e9f7c2868, type: 3}
-  _deathFX: {fileID: 0}
+  _deathFX: {fileID: 5985634496115995773, guid: 463cf9f7af4680240898f6aeba3fe3e6, type: 3}
   _weapon: {fileID: 11400000, guid: b46a2e12e9f27e045a995f8e21d4b5f8, type: 2}
-  _maxHealth: 5
+  _maxHealth: 4
   _moveSpeed: 5
   _rotationSpeed: 5

@@ -8,7 +8,8 @@ namespace MinimolGames
 
         private void Start()
         {
-            _player = FindObjectOfType<PlayerMovement>(); 
+            _player = FindObjectOfType<PlayerMovement>();
+            _player.GetComponent<HealthController>().Death += OnPlayerDeath;
         }
 
         private void Update()
@@ -17,9 +18,13 @@ namespace MinimolGames
             MoveTowards(_player.transform);
         }
 
-        private void MoveTowards(Transform p_target)
+        private void MoveTowards(Transform p_target) => _navMeshAgent.SetDestination(_player.transform.position);
+
+        private void OnPlayerDeath(HealthController p_healthController)
         {
-            _navMeshAgent.SetDestination(_player.transform.position);
+            _player.GetComponent<HealthController>().Death -= OnPlayerDeath;
+            _player = null;
+            _navMeshAgent.isStopped = true;
         }
     }
 }

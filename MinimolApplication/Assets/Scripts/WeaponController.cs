@@ -6,9 +6,9 @@ namespace MinimolGames
     {
         private WeaponSettings _weaponSettings;
         private ObjectPool<PoolObject> _projectilePool;
+        private ObjectPool<PoolObject> _projectileHitPool;
         private Transform _spawnPoint;
         private float _elapsedTime = 0;
-
 
         private void Update()
         {
@@ -32,7 +32,12 @@ namespace MinimolGames
             var weapon = Instantiate(_weaponSettings.WeaponPrefab, transform);
             _spawnPoint = weapon.transform.Find("SpawnPoint");
             _projectilePool = new ObjectPool<PoolObject>(_weaponSettings.ProjectilePrefab);
+            
+            GameObject hitParticle = _weaponSettings.ProjectilePrefab.GetComponent<Projectile>().HitParticle;
+            _projectileHitPool = new ObjectPool<PoolObject>(hitParticle);
         }
+
+        public Transform GetProjectileHitParticle => _projectileHitPool.Pull().transform;
 
         private void ShootProjectile()
         {
@@ -40,8 +45,7 @@ namespace MinimolGames
             direction.y -= (_weaponSettings.Spread/2) * (_weaponSettings.NumberOfProjectiles - 1);
             for (int i = 0; i < _weaponSettings.NumberOfProjectiles; i++)
             {
-
-                _projectilePool.Pull(_spawnPoint.position, Quaternion.Euler(direction));
+                _projectilePool.Pull(_spawnPoint.position, Quaternion.Euler(direction)).GetComponent<Projectile>().Init(this);
                 direction.y += _weaponSettings.Spread;
             }
         }
