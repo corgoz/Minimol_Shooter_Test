@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e81f5481e2db4564c967abda57435c20, type: 3}
-  m_Name: Arrow
+  m_Name: Sword
   m_EditorClassIdentifier: 
   _damageAmount: 1
-  _lifeTime: 5
-  _moveSpeed: 15
-  _destroyOnHit: 1
+  _lifeTime: 0.5
+  _moveSpeed: 0
+  _destroyOnHit: 0

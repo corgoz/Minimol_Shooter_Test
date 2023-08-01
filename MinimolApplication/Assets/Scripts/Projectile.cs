@@ -1,18 +1,16 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 namespace MinimolGames
 {
     public class Projectile : DamageDealer
     {
-//        private ProjectileSettings _projectileSettings;
-
         private float _elapsedTime;
         private Transform _transform;
 
         private void Awake()
         {
             _transform = transform;
-         //   _projectileSettings = (ProjectileSettings)_settings;
         }
 
         private void Update()
@@ -29,7 +27,8 @@ namespace MinimolGames
 
         private void OnTriggerEnter(Collider other)
         {
-            gameObject.SetActive(false);
+            if(((ProjectileSettings)_settings).DestroyOnHit)
+                gameObject.SetActive(false);
         }
     }
 }

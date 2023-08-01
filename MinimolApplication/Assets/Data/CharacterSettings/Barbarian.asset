@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gfx: {fileID: 919132149155446097, guid: cfe8ea767a8536d4d8e77a676f3d5fe4, type: 3}
   _deathFX: {fileID: 0}
+  _weapon: {fileID: 11400000, guid: ab2b57b0c49f78d45ab80e66aa22e1e9, type: 2}
   _maxHealth: 5
   _moveSpeed: 5
   _rotationSpeed: 5

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1f7266b7d179114881186ed2eccf13a, type: 3}
-  m_Name: CrossBow
+  m_Name: Axe
   m_EditorClassIdentifier: 
-  _fireRate: 2
-  _spread: 0
-  _numberOfProjectiles: 1
-  _weaponPrefab: {fileID: 6813300804160124987, guid: aa00da8bb75913149ab71294f0759243, type: 3}
-  _projectilePrefab: {fileID: 2728731296448604723, guid: cea68c9aa338d204ea7de6079c6dcee2, type: 3}
+  _fireRate: 1
+  _spread: 10
+  _numberOfProjectiles: 3
+  _weaponPrefab: {fileID: 1552143228512562110, guid: 93a2115a4bd399040b1cb2c7c70c8b20, type: 3}
+  _projectilePrefab: {fileID: 2728731296448604723, guid: 808f463bf932da340a34d7b8ca89d565, type: 3}

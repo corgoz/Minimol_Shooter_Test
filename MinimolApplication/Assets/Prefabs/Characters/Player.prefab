@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c2263a95df4a9bb8a68f8a1a4265c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponSettings: {fileID: 11400000, guid: c89abdcdca3a855438711cbbd7ed63b1, type: 2}
 --- !u!1 &2300052467944535593
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0369e2ab0014494abcb0eb2b4ab9e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterSettings: {fileID: 11400000, guid: aeaea5253aa890c478a17f261164adf1, type: 2}
+  _characterSettings: {fileID: 11400000, guid: 62aab93f65027bb4ebe66e58bb55a8b3, type: 2}
+  _weaponController: {fileID: 0}
 --- !u!114 &-8383142457275308535
 MonoBehaviour:
   m_ObjectHideFlags: 0
